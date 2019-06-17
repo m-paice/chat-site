@@ -1,25 +1,43 @@
 {
-  "name": "redux",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-scripts": "2.1.8"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+    "name": "projeto-redux",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "lint": "eslint src/",
+        "lint:fix": "eslint --fix src/",
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject"
+    },
+    "dependencies": {
+        "babel-eslint": "^10.0.1",
+        "prop-types": "^15.7.2",
+        "react": "^16.8.6",
+        "react-dom": "^16.8.6",
+        "react-redux": "^7.0.2",
+        "react-scripts": "2.1.8",
+        "redux": "^4.0.1",
+        "redux-form": "^8.2.0",
+        "redux-logger": "^3.0.6"
+    },
+    "eslintConfig": {
+        "extends": "react-app"
+    },
+    "browserslist": [
+        ">0.2%",
+        "not dead",
+        "not ie <= 11",
+        "not op_mini all"
+    ],
+    "devDependencies": {
+        "eslint": "^5.16.0",
+        "eslint-config-airbnb": "^17.1.0",
+        "eslint-config-prettier": "^5.0.0",
+        "eslint-plugin-import": "^2.17.2",
+        "eslint-plugin-jsx-a11y": "^6.2.1",
+        "eslint-plugin-no-unused-expressions": "^0.1.0",
+        "eslint-plugin-prettier": "^3.1.0",
+        "eslint-plugin-react": "^7.12.4"
+    }
 }
