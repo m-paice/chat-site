@@ -10,7 +10,7 @@
 npm install
 ```
 
-## Iniciar API
+## Iniciar
 
 ```bash
 npm start
