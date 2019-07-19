@@ -10,7 +10,8 @@ import { store, persistor, history } from './store';
 
 import Login from './view/Login';
 import Register from './view/Register';
-import Chat from './view/Chat';
+
+import Layout from './view/Layout';
 
 const App = () => (
   <Provider store={store}>
@@ -19,7 +20,7 @@ const App = () => (
         <Switch>
           <Route path="/" exact component={Login} />
           <Route path="/register" component={Register} />
-          <Route path="/chat" component={Chat} />
+          <Route path="/home" component={Layout} />
         </Switch>
       </ConnectedRouter>
     </PersistGate>

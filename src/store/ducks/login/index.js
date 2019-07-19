@@ -1,5 +1,6 @@
 const INITIAL_STATE = {
     token: '',
+    user: {},
     loading: false,
     error: false,
 };
@@ -23,13 +24,15 @@ export const login = (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case typesLogin.LOGIN_SUCCESS:
             return {
-                token: action.payload,
+                token: action.payload.token,
+                user: action.payload.data,
                 loading: false,
                 error: false,
             };
         case typesLogin.LOGIN_ERROR:
             return {
                 token: '',
+                data: {},
                 loading: false,
                 error: true,
             };

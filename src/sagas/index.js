@@ -3,9 +3,11 @@ import watcherRegister from './register';
 import watcherLogin from './login';
 import watcherUser from './user';
 import watcherSearch from './search';
+import watcherMessage from './message';
+import watcherTalk from './talk';
 
 function* sagas() {
-    yield all([watcherRegister(), watcherLogin(), watcherUser(), watcherSearch()]);
+    yield all([watcherRegister(), watcherLogin(), watcherUser(), watcherSearch(), watcherMessage(), watcherTalk()]);
 }
 
 export default sagas;

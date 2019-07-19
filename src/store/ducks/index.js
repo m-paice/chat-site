@@ -8,6 +8,8 @@ import { login } from './login';
 import { register } from './register';
 import { user } from './user';
 import { search } from './search';
+import { message } from './message';
+import { talk } from './talk';
 
 export const history = createBrowserHistory();
 
@@ -16,6 +18,8 @@ const rootReucers = combineReducers({
     register,
     user,
     search,
+    message,
+    talk,
     form: formReducer,
     toastr: toastrReducer,
     router: connectRouter(history),

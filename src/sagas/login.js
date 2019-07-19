@@ -12,10 +12,10 @@ function* login(action) {
             url: 'http://localhost:3333/login',
             data: action.payload.values,
         });
-        yield put({ type: typesLogin.LOGIN_SUCCESS, payload: response.data.token });
+        yield put({ type: typesLogin.LOGIN_SUCCESS, payload: response.data });
 
         yield toastr.success('Muito bem', 'Login efetuado com sucesse!', {
-            onHideComplete: () => history.push('/chat'),
+            onHideComplete: () => history.push('/home'),
         });
     } catch (e) {
         yield put({ type: typesLogin.LOGIN_ERROR, payload: e });

@@ -5,15 +5,14 @@
 
 import React from 'react';
 
+import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-
 import { reduxForm, Form, Field } from 'redux-form';
+import { Button, InputGroup, InputGroupAddon } from 'reactstrap';
 
-import { Button, Row, Col } from 'reactstrap';
+import { actionsSearch } from '../../store/ducks/search';
 
-import { actionsSearch } from '../../../store/ducks/search';
-
-import CustomInput from '../../../components/CustomInput';
+import NewInput from '../../components/NewInput';
 
 const style = {
     buttom: {
@@ -31,18 +30,18 @@ const SearchUser = ({ handleSubmit }) => {
 
     return (
       <Form onSubmit={handleSubmit(v => handleSave(v))}>
-        <Row>
-          <Col xs="10" md="10" sm="10">
-            <Field name="search" component={CustomInput} />
-          </Col>
-          <Col xs="2" md="2" sm="2">
-            <Button color="success" type="submit" style={style.buttom}>
-                        Add
-            </Button>
-          </Col>
-        </Row>
+        <InputGroup>
+          <InputGroupAddon addonType="append">
+            <Button color="success"> Search </Button>
+          </InputGroupAddon>
+          <Field name='search' component={NewInput} />
+        </InputGroup>
       </Form>
     );
+};
+
+SearchUser.propTypes = {
+    handleSubmit: PropTypes.func.isRequired,
 };
 
 export default reduxForm({
