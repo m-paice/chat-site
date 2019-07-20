@@ -9,6 +9,10 @@ export const typesLogin = {
     LOGIN_INIT: '@chat/LOGIN_INIT',
     LOGIN_SUCCESS: '@chat/LOGIN_SUCCESS',
     LOGIN_ERROR: '@chat/LOGIN_ERROR',
+
+    LOGOUT_INIT: '@chat/LOGOUT_INIT',
+    LOGOUT_SUCCESS: '@chat/LOGOUT_SUCCESS',
+    LOGOUT_ERROR: '@chat/LOGOUT_ERROR',
 };
 
 export const actionsLogin = {
@@ -17,6 +21,9 @@ export const actionsLogin = {
         payload: {
             values,
         },
+    }),
+    logout: () => ({
+        type: typesLogin.LOGOUT_INIT,
     }),
 };
 
@@ -36,6 +43,8 @@ export const login = (state = INITIAL_STATE, action) => {
                 loading: false,
                 error: true,
             };
+        case typesLogin.LOGOUT_SUCCESS:
+            return INITIAL_STATE;
         default:
             return state;
     }

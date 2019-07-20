@@ -1,3 +1,5 @@
+import { typesLogin } from '../login';
+
 const INITIAL_STATE = {
     data: [],
     loading: false,
@@ -30,6 +32,8 @@ export const user = (state = INITIAL_STATE, action) => {
                 loading: false,
                 error: true,
             };
+        case typesLogin.LOGOUT_SUCCESS:
+            return INITIAL_STATE;
         default:
             return state;
     }

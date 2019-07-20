@@ -9,16 +9,17 @@ import PropTypes from 'prop-types';
 
 import { Input } from 'reactstrap';
 
-const CustomInput = ({ type, input }) => {
+const NewInput = ({ type, input, placeholder }) => {
     const { onChange, value } = input;
-    return (<Input type={type} onChange={onChange} value={value} />)
+    return (<Input type={type} onChange={onChange} value={value} placeholder={placeholder} />)
   
 };
 
-CustomInput.propTypes = {
+NewInput.propTypes = {
     type: PropTypes.string,
     labelText: PropTypes.string,
     input: PropTypes.object,
+    placeholder: PropTypes.string
 };
 
-export default CustomInput;
+export default NewInput;

@@ -13,11 +13,28 @@ io.on('sendMessage', message => {
     store.dispatch({ type: typesMessage.LIST_MESSAGE_SUCCESS, payload: message.message });
 });
 
-function* sendMessage(action) {
+function* listMessage() {
     const token = yield select(state => state.login.token);
     const contact = yield select(state => state.talk.data.id);
     try {
         const response = yield axios({
+            method: 'get',
+            url: `http://localhost:3333/talk/${contact}`,
+            headers: {
+                authorization: `Bearer ${token}`,
+            },
+        });
+        yield put({ type: typesMessage.LIST_MESSAGE_SUCCESS, payload: response.data.data });
+    } catch (e) {
+        yield put({ type: typesMessage.LIST_MESSAGE_ERROR, payload: e });
+    }
+}
+
+function* sendMessage(action) {
+    const token = yield select(state => state.login.token);
+    const contact = yield select(state => state.talk.data.id);
+    try {
+        yield axios({
             method: 'post',
             url: 'http://localhost:3333/talk',
             headers: {
@@ -28,26 +45,9 @@ function* sendMessage(action) {
                 message: action.payload.values.message,
             },
         });
-        yield put({ type: typesMessage.MESSAGE_SUCCESS, payload: response.data.data });
+        yield listMessage()
     } catch (e) {
         yield put({ type: typesMessage.MESSAGE_ERROR, payload: e });
-    }
-}
-
-function* listMessage() {
-    const token = yield select(state => state.login.token);
-    const contact = yield select(state => state.talk.data.id);
-    try {
-        const response = yield axios({
-            method: 'get',
-            url: `http://localhost:3333/talk?contact=${contact}`,
-            headers: {
-                authorization: `Bearer ${token}`,
-            },
-        });
-        yield put({ type: typesMessage.LIST_MESSAGE_SUCCESS, payload: response.data.data });
-    } catch (e) {
-        yield put({ type: typesMessage.LIST_MESSAGE_ERROR, payload: e });
     }
 }
 

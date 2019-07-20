@@ -23,8 +23,13 @@ function* login(action) {
     }
 }
 
+function* logout(){
+    yield put({ type: typesLogin.LOGOUT_SUCCESS })
+}
+
 function* watcherLogin() {
     yield takeLatest(typesLogin.LOGIN_INIT, login);
+    yield takeLatest(typesLogin.LOGOUT_INIT, logout);
 }
 
 export default watcherLogin;

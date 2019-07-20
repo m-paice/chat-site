@@ -1,6 +1,8 @@
+import { typesLogin } from '../login';
+
 const INITIAL_STATE = {
     talk: false,
-    data: {}
+    data: {},
 };
 
 export const typesTalk = {
@@ -17,21 +19,23 @@ export const actionsTalk = {
     }),
     getTalk: values => ({
         type: typesTalk.GET_TALK_INIT,
-        payload: { values }
-    })
+        payload: { values },
+    }),
 };
 
 export const talk = (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case typesTalk.TALK_SUCCESS:
-          return {
-            talk: true
-          }
-          case typesTalk.GET_TALK_SUCCESS: 
-          return {
-              talk: state.talk,
-              data: action.payload
-          }
+            return {
+                talk: true,
+            };
+        case typesTalk.GET_TALK_SUCCESS:
+            return {
+                talk: state.talk,
+                data: action.payload,
+            };
+        case typesLogin.LOGOUT_SUCCESS:
+            return INITIAL_STATE;
         default:
             return state;
     }

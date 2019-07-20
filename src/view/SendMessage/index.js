@@ -14,24 +14,20 @@ import { actionsMessage } from '../../store/ducks/message';
 
 import NewInput from '../../components/NewInput';
 
-const style = {
-    buttom: {
-        position: 'absolute',
-        top: '23px',
-        right: '15px',
-    },
-};
-
-const SendMessage = ({ handleSubmit }) => {
+const SendMessage = ({ handleSubmit, initialize }) => {
     const dispatch = useDispatch();
     const handleSave = values => {
         dispatch(actionsMessage.message(values));
+
+        initialize({
+          message: ''
+        })
     };
 
     return (
       <Form onSubmit={handleSubmit(v => handleSave(v))}>
         <InputGroup>
-          <Field name='message' component={NewInput} />
+          <Field name='message' component={NewInput} placeholder='digite sua mensagem...' />
           <InputGroupAddon addonType="append">
             <Button color="success"> Send </Button>
           </InputGroupAddon>
@@ -42,6 +38,7 @@ const SendMessage = ({ handleSubmit }) => {
 
 SendMessage.propTypes = {
     handleSubmit: PropTypes.func.isRequired,
+    initialize: PropTypes.func.isRequired
 };
 
 export default reduxForm({

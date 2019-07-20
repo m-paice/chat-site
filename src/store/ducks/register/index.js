@@ -1,3 +1,5 @@
+import { typesLogin } from '../login';
+
 const INITIAL_STATE = {
     status: null,
     loading: false,
@@ -31,6 +33,8 @@ export const register = (state = INITIAL_STATE, action) => {
                 loading: false,
                 error: true,
             };
+        case typesLogin.LOGOUT_SUCCESS:
+            return INITIAL_STATE;
         default:
             return state;
     }

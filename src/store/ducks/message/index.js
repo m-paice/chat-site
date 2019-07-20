@@ -1,3 +1,5 @@
+import { typesLogin } from '../login';
+
 const INITIAL_STATE = {
     data: [],
     talk: null,
@@ -63,6 +65,8 @@ export const message = (state = INITIAL_STATE, action) => {
                 loading: false,
                 error: false,
             };
+        case typesLogin.LOGOUT_SUCCESS:
+            return INITIAL_STATE;
         default:
             return state;
     }
