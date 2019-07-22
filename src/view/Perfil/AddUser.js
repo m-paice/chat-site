@@ -28,6 +28,7 @@ const style = {
 const AddUser = ({ modal, setModal }) => {
     const dispatch = useDispatch();
     const users = useSelector(state => state.user.data);
+    const contacts = useSelector(state => state.contact.data);
 
     useEffect(() => {
         dispatch(actionsUser.listUser());
@@ -37,21 +38,49 @@ const AddUser = ({ modal, setModal }) => {
         dispatch(actionsContact.addContact(id));
     };
 
+    const compare = (arrUser, arrContact) => {
+        const final = [];
+
+        if (arrUser.length !== 0 && arrContact.length !== 0) {
+            arrUser.forEach(user => {
+                arrContact.forEach(contact => {
+                    if (user.id === contact.id) {
+                        return final.push({ ok: true, ...user });
+                    }
+                    return final.push({ ok: false, ...user });
+                });
+            });
+
+            return final;
+        }
+
+        return arrUser;
+    };
+
+    const arrFiltered = compare(users, contacts);
+
     return (
       <div>
         <Modal isOpen={modal}>
           <ModalHeader> Lista de usuários </ModalHeader>
           <ModalBody style={style.body}>
             <ListGroup>
-              {users &&
-                            users.map(v => (
-                              <ListGroupItem key={v.id} onClick={() => addUser(v.id)}>
-                                {`${v.firstName} ${v.lastName}`}
-                                <span style={style.span}>
-                                  <FontAwesomeIcon icon={faPlus} />
-                                </span>
-                              </ListGroupItem>
-                            ))}
+              {arrFiltered &&
+                            arrFiltered.map(v => {
+                                if (v.ok) {
+                                    return <ListGroupItem key={v.id}>{`${v.firstName} ${v.lastName}`}</ListGroupItem>;
+                                }
+
+                                return (
+                                  <ListGroupItem key={v.id} onClick={() => addUser(v.id)}>
+                                    {`${v.firstName} ${v.lastName}`}
+                                    <span style={style.span}>
+                                      <FontAwesomeIcon icon={faPlus} />
+                                    </span>
+                                  </ListGroupItem>
+                                );
+                            })}
+              {console.log(compare(users, contacts))}
             </ListGroup>
           </ModalBody>
           <ModalFooter>

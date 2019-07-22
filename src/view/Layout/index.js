@@ -41,8 +41,8 @@ const Layout = () => {
             </Row>
             <Row
               style={{
-                marginTop: '50px',
-              }}
+                            marginTop: '50px',
+                        }}
             >
               <Col>
                 <ListOfUser />
@@ -68,18 +68,18 @@ const Layout = () => {
                   </Col>
                 </Row>
               </div>
-                      ) : (
-                        <div
-                          style={{
-                                position: 'absolute',
-                                top: '50%',
-                                left: '50%',
-                                transform: 'translate(-50%, -50%)',
-                            }}
-                        >
-                            Bem-vindo ao chat
-                        </div>
-                    )}
+                ) : (
+                  <div
+                    style={{
+                        position: 'absolute',
+                        top: '50%',
+                        left: '50%',
+                        transform: 'translate(-50%, -50%)',
+                    }}
+                  >
+                        Bem-vindo ao chat
+                  </div>
+                )}
           </Col>
         </Row>
       </Container>

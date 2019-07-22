@@ -14,8 +14,6 @@ function* listUser() {
 
         const data = yield response.data.data.filter(v => v.id !== userCorrent);
 
-        console.log('data: ', data)
-
         yield put({ type: typesUser.USER_LIST_SUCCESS, payload: data });
     } catch (e) {
         yield put({ type: typesUser.USER_LIST_ERROR });

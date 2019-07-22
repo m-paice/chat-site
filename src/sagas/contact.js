@@ -42,8 +42,6 @@ function* listContact() {
             },
         });
 
-        console.log(response)
-
         yield put({ type: typesContact.LIST_CONTACT_SUCCESS, payload: response.data.data });
     } catch (e) {
         yield put({ type: typesContact.LIST_CONTACT_ERROR });

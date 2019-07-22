@@ -24,8 +24,8 @@ const Login = ({ handleSubmit }) => {
     return (
       <CustomCard title="Login - Chat">
         <Form onSubmit={handleSubmit(v => handleSave(v))}>
-          <Field name="email" type="email" component={CustomInput} />
-          <Field name="password" type="password" component={CustomInput} />
+          <Field name="email" type="email" labelText='Email' component={CustomInput} />
+          <Field name="password" type="password" labelText='Password' component={CustomInput} />
 
           <Link to="/register">
             <Button type="button" color='info'> Cadastrar </Button>

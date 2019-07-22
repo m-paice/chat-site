@@ -19,7 +19,7 @@ function* login(action) {
         });
     } catch (e) {
         yield put({ type: typesLogin.LOGIN_ERROR, payload: e });
-        yield toastr.error('Opa...', String(e));
+        yield toastr.error('Opa...', 'Dados inválidos');
     }
 }
 
