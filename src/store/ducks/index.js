@@ -10,6 +10,7 @@ import { user } from './user';
 import { search } from './search';
 import { message } from './message';
 import { talk } from './talk';
+import { contact } from './contact';
 
 export const history = createBrowserHistory();
 
@@ -20,6 +21,7 @@ const rootReucers = combineReducers({
     search,
     message,
     talk,
+    contact,
     form: formReducer,
     toastr: toastrReducer,
     router: connectRouter(history),

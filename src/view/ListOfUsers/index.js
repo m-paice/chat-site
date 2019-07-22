@@ -8,9 +8,9 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { ListGroup, ListGroupItem } from 'reactstrap';
 
-import { actionsUser } from '../../store/ducks/user';
 import { actionsTalk } from '../../store/ducks/talk';
 import { actionsMessage } from '../../store/ducks/message';
+import { actionsContact } from '../../store/ducks/contact';
 
 import avatar from '../../assets/img/avatar.svg';
 
@@ -26,13 +26,12 @@ const style = {
 
 const ListOfUser = () => {
     const dispatch = useDispatch();
-    const users = useSelector(state => state.user.data);
-    const userActual = useSelector(state => state.login.user);
+    const contacts = useSelector(state => state.contact.data);
     
     const [id, setId] = useState(0);
 
     useEffect(() => {
-      dispatch(actionsUser.listUser())
+      dispatch(actionsContact.listContact())
     }, [])
 
     const handleClick = (idUser, values) => {
@@ -45,8 +44,8 @@ const ListOfUser = () => {
     return (
       <div style={style.container}>
         <ListGroup style={style.list}>
-          {users.length !== 0 ?
-            users.filter(v => v.id !== userActual.id).map(v => (
+          {contacts.length !== 0 ?
+            contacts.map(v => (
               <ListGroupItem
                 key={v.id}
                 onClick={() => handleClick(v.id, v)}

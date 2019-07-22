@@ -14,14 +14,6 @@ import { actionsSearch } from '../../store/ducks/search';
 
 import NewInput from '../../components/NewInput';
 
-const style = {
-    buttom: {
-        position: 'absolute',
-        top: '23px',
-        right: '1px',
-    },
-};
-
 const SearchUser = ({ handleSubmit }) => {
     const dispatch = useDispatch();
     const handleSave = values => {
