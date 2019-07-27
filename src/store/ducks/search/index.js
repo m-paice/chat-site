@@ -1,4 +1,4 @@
-import { typesLogin } from '../login';
+import { TypesLogin } from '../login';
 
 const INITIAL_STATE = {
     data: {},
@@ -38,7 +38,7 @@ export const search = (state = INITIAL_STATE, action) => {
                 error: true,
                 messageError: action.payload,
             };
-        case typesLogin.LOGOUT_SUCCESS:
+        case TypesLogin.LOGOUT_SUCCESS:
             return INITIAL_STATE;
         default:
             return state;

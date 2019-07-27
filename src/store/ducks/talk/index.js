@@ -1,4 +1,4 @@
-import { typesLogin } from '../login';
+import { TypesLogin } from '../login';
 
 const INITIAL_STATE = {
     talk: false,
@@ -34,7 +34,7 @@ export const talk = (state = INITIAL_STATE, action) => {
                 talk: state.talk,
                 data: action.payload,
             };
-        case typesLogin.LOGOUT_SUCCESS:
+        case TypesLogin.LOGOUT_SUCCESS:
             return INITIAL_STATE;
         default:
             return state;

@@ -13,7 +13,7 @@ import Register from './view/Register';
 
 import Layout from './view/Layout';
 
-const App = () => (
+const App: React.FC = () => (
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
       <ConnectedRouter history={history}>

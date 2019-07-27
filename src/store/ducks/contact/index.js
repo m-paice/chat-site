@@ -1,4 +1,4 @@
-import { typesLogin } from '../login';
+import { TypesLogin } from '../login';
 
 const INITIAL_STATE = {
     data: [],
@@ -50,7 +50,7 @@ export const contact = (state = INITIAL_STATE, action) => {
                 loading: false,
                 error: false,
             };
-        case typesLogin.LOGOUT_SUCCESS:
+        case TypesLogin.LOGOUT_SUCCESS:
             return INITIAL_STATE;
         default:
             return state;
