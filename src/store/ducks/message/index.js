@@ -2,7 +2,7 @@ import { typesLogin } from '../login';
 
 const INITIAL_STATE = {
     data: [],
-    talk: null,
+    talk: [],
     loading: false,
     error: false,
 };

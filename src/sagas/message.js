@@ -10,7 +10,7 @@ export const io = socket('http://localhost:3333');
 io.on('sendMessage', message => {
     console.log(message);
 
-    store.dispatch({ type: typesMessage.LIST_MESSAGE_SUCCESS, payload: message.message });
+    store.dispatch({ type: typesMessage.LIST_MESSAGE_INIT });
 });
 
 function* listMessage() {
@@ -45,7 +45,7 @@ function* sendMessage(action) {
                 message: action.payload.values.message,
             },
         });
-        yield listMessage()
+        yield listMessage();
     } catch (e) {
         yield put({ type: typesMessage.MESSAGE_ERROR, payload: e });
     }
