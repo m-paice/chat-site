@@ -39,20 +39,20 @@ const AddUser = ({ modal, setModal }) => {
     };
 
     const compare = (arrUser, arrContact) => {
-        const final = [];
+        // console.log('user: ', arrUser);
+        // console.log('contact: ', arrContact);
+        // const final = [];
 
-        if (arrUser.length !== 0 && arrContact.length !== 0) {
-            arrUser.forEach(user => {
-                arrContact.forEach(contact => {
-                    if (user.id === contact.id) {
-                        return final.push({ ok: true, ...user });
-                    }
-                    return final.push({ ok: false, ...user });
-                });
-            });
-
-            return final;
-        }
+        // if (arrUser.length !== 0 && arrContact.length !== 0) {
+        //     arrUser.forEach(user => {
+        //         return arrContact.forEach(contact => {
+        //             if (user.id !== contact.id) {
+        //                 final.push({ ...user });
+        //             }
+        //         });
+        //     });
+        //     return final;
+        // }
 
         return arrUser;
     };
@@ -66,21 +66,14 @@ const AddUser = ({ modal, setModal }) => {
           <ModalBody style={style.body}>
             <ListGroup>
               {arrFiltered &&
-                            arrFiltered.map(v => {
-                                if (v.ok) {
-                                    return <ListGroupItem key={v.id}>{`${v.firstName} ${v.lastName}`}</ListGroupItem>;
-                                }
-
-                                return (
-                                  <ListGroupItem key={v.id} onClick={() => addUser(v.id)}>
-                                    {`${v.firstName} ${v.lastName}`}
-                                    <span style={style.span}>
-                                      <FontAwesomeIcon icon={faPlus} />
-                                    </span>
-                                  </ListGroupItem>
-                                );
-                            })}
-              {console.log(compare(users, contacts))}
+                            arrFiltered.map(v => (
+                              <ListGroupItem key={v.id} onClick={() => addUser(v.id)}>
+                                {`${v.firstName} ${v.lastName}`}
+                                <span style={style.span}>
+                                  <FontAwesomeIcon icon={faPlus} />
+                                </span>
+                              </ListGroupItem>
+                            ))}
             </ListGroup>
           </ModalBody>
           <ModalFooter>
